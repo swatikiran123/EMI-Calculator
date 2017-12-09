@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html ng-app="MyApp">
+<head>
+  <script type="text/javascript" src="angular.min.js"></script>
+  <script type="text/javascript" src="app.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body ng-controller="MyCtrl">
+
+  <div>
+    <div>
+      <div class="container">
+
+        <div class="jumbotron"><h1><center>Monthly EMI Calculator</center></h1></div>
+
+        Enter Your Home Loan Details & Click the Calculate Button
+        <div class="row">
+
+          <div class="col-xs-6">
+            <form name="loan_form">
+              <div class=''>
+                <table class='table table-bordered' align='center'>
+                  <tr>
+                    <td>Loan Amount:</td>
+                    <td><input type="text" name="amt" ng-model="data.amt" class="form-control" value="4500000" title="Enter your Loan Amount" /></td>
+                  </tr>
+                  <tr>
+                    <td>Total Number of EMI Payments (in Months):</td>
+                    <td><input type="text" name="pay" ng-model="data.pay" class="form-control" value="180" title="Enter the Loan Tenure in months" /></td>
+                  </tr>
+                  <tr>
+                    <td>Annual Interest Rate:<br /><span style="font-size:75%">(ex. 8.5% = 8.5)</span></td>
+                    <td><input type="text" name="rate" ng-model="data.rate" class="form-control" value="10.75" title="Rate of Interest offered by the bank" /></td>
+                  </tr>
+                  <tr>
+                    <td colspan='2' align='center' style='padding-top:5px'>
+                      <button class="btn btn-success" type="button" name="morgcal" language="JavaScript" ng-click="callOne(data);"><i class="fa fa-send"></i> Calculate</button>&nbsp;&nbsp;&nbsp;
+                      <button class="btn bg-black" type="button" name="morgcal" language="JavaScript" ng-click="clear(data);data=''"><i class="fa fa-refresh"></i> Start Over</button>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </form>
+            </div>
+
+            <div class="col-xs-6">
+              <div ng-show = showData>
+               <my-dir-one></my-dir-one>
+             </div>
+           </div>
+
+         </div><!-- row closing -->
+
+         <div class="row">
+          <div ng-show = showData>
+           <my-dir-two></my-dir-two>
+         </div>
+       </div><!-- row closing -->
+
+     </div><!-- container closing -->
+   </div><!-- controller closing -->
+ </div><!-- module closing -->
+
+</body>
+</html>
